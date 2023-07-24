@@ -1,5 +1,9 @@
 import 'student.dart';
 
+/*
+  2023.07.24 dart 문법공부
+  class 및 instance 
+*/
 void main() {
   print('class 공부');
   //print(name);  //정의된 변수가 아니라서 에러 발생
