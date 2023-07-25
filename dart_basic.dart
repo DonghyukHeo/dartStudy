@@ -1,8 +1,7 @@
-
-
 import 'inheritance/person.dart';
 
 /*
+  2023.07.25
   class의 상속
  */
 void main() {
