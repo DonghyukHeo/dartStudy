@@ -20,7 +20,5 @@ class Rectangle implements Shape {
   String? color;
 
   @override
-  void draw() {
-    // TODO: implement draw
-  }
+  void draw() {}
 }
