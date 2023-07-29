@@ -12,7 +12,7 @@ void main() {
   //variableName = null;
   print(variableName);
 
-  var flybyObject = {'Jupiter', 'Saturn', 'Uranus', 'Neptune'};
+  //var flybyObject = {'Jupiter', 'Saturn', 'Uranus', 'Neptune'};
 
   /*
     dynamic 변수는 값에 제한을 하지 않고 여러가지 타입을 받아야 될때 
