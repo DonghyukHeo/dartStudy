@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/pages/Align_home_page.dart';
-//import 'package:flutter_application_4/pages/my_home_page.dart'
+import 'package:flutter_application_5/pages/button_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.brown,
+        primarySwatch: Colors.orange,
       ),
-      //home: const MyHomePage(),
-      home: const AlignHomePage(),
+      home: const ButtonPage(),
     );
   }
 }
