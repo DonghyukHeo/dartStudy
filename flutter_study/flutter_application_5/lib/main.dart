@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_5/pages/button_page.dart';
+import 'package:flutter_application_5/pages/floatingButton_page.dart';
+//import 'package:flutter_application_5/pages/button_page.dart';
+//import 'package:flutter_application_5/pages/stateful_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const ButtonPage(),
+      //home: const ButtonPage(),
+      //home: StateFulPage(),
+      home: FloatingButtonPage(),
     );
   }
 }
