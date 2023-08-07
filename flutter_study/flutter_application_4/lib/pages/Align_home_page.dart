@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 /*
+  2023.08.07
+  
   화면의 폭 크기 : MediaQuery.of(context).size.width 로 폭을 알 수 있다.
   Spacer : 각 요소를 그린 이 후 남은 공간을 여백으로 처리를 해준다.
   spacer에 flex 값을 설정해서 전체 여백 공간에 대비해서 여백의 크기를 지정해 줄 수 있다.

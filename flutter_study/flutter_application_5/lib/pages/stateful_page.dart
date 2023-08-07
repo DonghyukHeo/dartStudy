@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 /*
+  2023.08.07
+  
   동적 화면 그리기 
 
   StatefulWidget 위젯 사용하기
