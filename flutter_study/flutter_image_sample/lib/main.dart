@@ -49,11 +49,29 @@ class _ImageHomePage extends StatelessWidget {
           children: [
             //Image.file(file),
             Image.network(
-                'https://img.khan.co.kr/news/2023/01/02/news-p.v1.20230102.1f95577a65fc42a79ae7f990b39e7c21_P1.webp'),
+              'https://img.khan.co.kr/news/2023/01/02/news-p.v1.20230102.1f95577a65fc42a79ae7f990b39e7c21_P1.webp',
+              width: 300,
+              height: 300,
+              fit: BoxFit.fill, // width, height에 딱 맞추어서 채울때(이미지 왜곡이 생김)
+            ),
             Image.network(
-                'https://thumbs.gfycat.com/AdoredDeadDeermouse-size_restricted.gif'),
-            Image.asset('assets/image/image.png'),
-            Image.asset('assets/image/image2.gif'),
+              'https://thumbs.gfycat.com/AdoredDeadDeermouse-size_restricted.gif',
+              width: 300,
+              height: 300,
+              fit: BoxFit.contain, // 이미지 자체의 비율을 유지하게 적용
+            ),
+            Image.asset(
+              'assets/image/image.png',
+              width: 300,
+              height: 300,
+              fit: BoxFit.fill,
+            ),
+            Image.asset(
+              'assets/image/image2.gif',
+              width: 300,
+              height: 300,
+              fit: BoxFit.cover,
+            ),
             Image.asset('assets/image/image3.gif'),
           ],
         ),
