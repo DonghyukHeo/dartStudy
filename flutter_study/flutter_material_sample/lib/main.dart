@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
   label은 required는 아니지만 null 값이 들어가면 에러가 발생하기 때문에 작성을 해야
   정상적으로 화면에 출력이 된다.
   currentIndex 값으로 활성화 할 기본 메뉴를 정할 수 있다.
+
+  쿠퍼티노 iOS스타일은 네이티브 위젯이 아니다. 
 */
 
 class ButtonApp extends StatefulWidget {
@@ -44,12 +47,20 @@ class _ButtonAppState extends State<ButtonApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*
       appBar: AppBar(
         title: Text('Bottom 네이게이션 바'),
         centerTitle: true,
       ),
+      */
+      appBar: const CupertinoNavigationBar(
+        middle: Text('쿠퍼티노 스타일 AppBar'),
+      ),
       body: const Center(
-        child: Placeholder(),
+        //child: CupertinoActivityIndicator(),
+        child: CupertinoSearchTextField(
+          prefixIcon: Icon(CupertinoIcons.search),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _index,
