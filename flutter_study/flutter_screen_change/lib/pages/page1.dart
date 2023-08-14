@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screen_change/pages/page2.dart';
 
 /*
+  2023.08.14 
+
   화면을 이동하기 위해서는
   Navigator.push 을 사용하여 이동할 페이지를 지정한다.
   이동된 페이지에서는 뒤로 가기 버튼이 자동으로 추가가 되어서 화면에 표시가 된다.
 
+  push로 호출된 페이지에서 나가기 위해서는 Navigator.pop을 사용하여 나갈 수 있다.
   
  */
 
