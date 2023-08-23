@@ -3,6 +3,8 @@ import 'package:flutter_local_storage/page/user_list_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 /*
+  2023.08.23
+  
   로컬 저장소 hive 이용하기
 
   로컬 데이터 베이스
