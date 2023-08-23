@@ -1,8 +1,19 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+/*
+  2023.08.21
+  갤러리 및 카메라 접근하기
+
+  image_picker 패키지 이용
+  ImageSource.gallery : 갤러리에 대한 접근
+  ImageSource.camera : 카메라에 대한 접근
+
+  안드로이드에서는 해당 권한에 대한 추가적인 설정이 없지만 
+  ios에서는 NSCameraUsageDescription, NSPhotoLibraryUsageDescription 에 대한
+  설정을 info.plist 에 처리해줘야 한다.
+*/
 class ImagePage extends StatefulWidget {
   const ImagePage({super.key});
 
