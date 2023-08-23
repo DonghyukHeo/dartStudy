@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_storage/model/inputform.dart';
 
@@ -10,7 +11,7 @@ import 'package:flutter_local_storage/model/inputform.dart';
   DB저장소
   1. 클라우드 저장소 : 외부 서비스에 영구적으로 저장하는 공간으로 인터넷이 연결된 상태에서 사용가능하며,
   서버 사용 비용 및 보안관련 조치가 필요하다.
-  2. 로컬저장소 : 기기의 내부에 저장하는 방식으로 인터넷 연결이 필요가 없으며, mssql lite와 hive 방식이 있다.
+  2. 로컬저장소 : 기기의 내부에 저장하는 방식으로 인터넷 연결이 필요가 없으며, SQLite와 hive 방식이 있다.
 */
 
 class UserListPage extends StatefulWidget {
@@ -26,6 +27,8 @@ class _UserListPageState extends State<UserListPage> {
 
   final users = <InputForm>[];
 
+  bool isDarkMode = false;
+
   //화면이 꺼질때 controller를 dispose 처리
   @override
   void dispose() {
@@ -38,6 +41,20 @@ class _UserListPageState extends State<UserListPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('로컬 저장소'),
+        actions: [
+          CupertinoSwitch(
+            value: isDarkMode,
+            onChanged: (val) {
+              setState(() {
+                isDarkMode = val;
+              });
+              //box.put('darkMode', !darkMode);
+            },
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+        ],
       ),
       body: Column(
         children: [
