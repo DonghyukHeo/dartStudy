@@ -39,11 +39,13 @@ Future<void> _initHive() async {
 }
 
 /*
+  2023.08.24 
+
   Hive를 통해서 dark모드 전환 구현
   설정에 따라서 hive box에 값을 put 처리 한후
   설정된 box의 값을 get올 가져와서 설정을 반영한다.
-  dark 모드는 build 부분의 setState 로는 반영이 안되며, MaterialApp 전체에 적용을 해야 하며,
-  그러기 위해서는 값을 받아 들일 listener가 필요하다.
+  dark 모드는 build 부분의 setState 로는 반영이 안되며, 
+  box의 값이 변화 될때 해당 정보를 가지고 처리를 하기 위한 listner가 필요하다.
   listener는 ValueListenableBuilder 를 통해서 구현을 처리하여 MaterialApp에 적용이 되도록
   하면 된다.
 */
