@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_storage/page/user_list_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -37,18 +38,40 @@ Future<void> _initHive() async {
   await Hive.openBox('darkModeBox');
 }
 
+/*
+  Hive를 통해서 dark모드 전환 구현
+  설정에 따라서 hive box에 값을 put 처리 한후
+  설정된 box의 값을 get올 가져와서 설정을 반영한다.
+  dark 모드는 build 부분의 setState 로는 반영이 안되며, MaterialApp 전체에 적용을 해야 하며,
+  그러기 위해서는 값을 받아 들일 listener가 필요하다.
+  listener는 ValueListenableBuilder 를 통해서 구현을 처리하여 MaterialApp에 적용이 되도록
+  하면 된다.
+*/
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
-      ),
-      home: const UserListPage(),
+    //변경된 것을 반영하기 위해서는 ValueListenableBuilder 를 통해서 hive의 box를 listenable 처리해야 한다.
+    return ValueListenableBuilder(
+      valueListenable: Hive.box('darkModeBox').listenable(),
+      builder: (context, Box box, widget) {
+        // box를 object 타입으로 Box 형식으로 전달
+        final darkMode =
+            box.get('mode', defaultValue: false); // hive box에 값을 가져오기
+        return MaterialApp(
+          title: 'Flutter Demo',
+          //themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
+          darkTheme: ThemeData.dark(),
+          theme: ThemeData(
+            primarySwatch: Colors.brown,
+          ),
+          home: const UserListPage(),
+        );
+      },
     );
   }
 }

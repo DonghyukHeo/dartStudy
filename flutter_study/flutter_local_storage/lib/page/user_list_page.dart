@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_storage/model/inputform.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 /*
   데이터를 저장하기 위한 입력 폼 만들기
@@ -21,13 +22,22 @@ class UserListPage extends StatefulWidget {
   State<UserListPage> createState() => _UserListPageState();
 }
 
+bool isDarkMode = false;
+
 class _UserListPageState extends State<UserListPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
 
   final users = <InputForm>[];
+  late Box _darkMode; // late 키워드를 통해서 추후 반드시 값이 있다는 것을 명시
 
-  bool isDarkMode = false;
+  // 처음 실행시 Hive의 box 지정
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _darkMode = Hive.box('darkModeBox');
+  }
 
   //화면이 꺼질때 controller를 dispose 처리
   @override
@@ -47,8 +57,8 @@ class _UserListPageState extends State<UserListPage> {
             onChanged: (val) {
               setState(() {
                 isDarkMode = val;
+                _darkMode.put('mode', val); //box.put('darkMode', !darkMode);
               });
-              //box.put('darkMode', !darkMode);
             },
           ),
           const SizedBox(
