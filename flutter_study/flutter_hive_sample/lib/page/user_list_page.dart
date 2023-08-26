@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -93,6 +95,12 @@ class _UserListPageState extends State<UserListPage> {
                               // 아직 해당 List에 값이 없을때 호출이 될 수 있어서 에러가 발생하기 때문에 예외처리가 필요
                               title: Text(users[i].name),
                               subtitle: Text(users[i].age.toString()),
+                              trailing: const Icon(Icons.delete),
+                              onTap: () {
+                                inputFormBox.delete(inputForm.key).then(
+                                      (value) => log(inputForm.key),
+                                    );
+                              },
                             );
                           },
                         ),
